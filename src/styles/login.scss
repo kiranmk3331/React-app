@@ -1,0 +1,56 @@
+// Variables
+$form-background-color: #f8f8f8;
+$form-padding: 20px;
+$form-field-height: 40px;
+$form-label-color: #333;
+$form-input-color: #555;
+$form-input-border-radius: 4px;
+$form-input-border-color: #ddd;
+$form-input-focus-border-color: #bbb;
+$form-submit-background-color: #0066cc;
+$form-submit-color: #fff;
+$form-submit-border-radius: 4px;
+
+// Login Form
+.login-form {
+  background-color: $form-background-color;
+  padding: $form-padding;
+  border-radius: $form-input-border-radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: $form-label-color;
+    font-weight: bold;
+  }
+  
+  input[type="text"], input[type="password"], input[type="email"] {
+    display: block;
+    height: $form-field-height;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: $form-input-color;
+    border: 1px solid $form-input-border-color;
+    border-radius: $form-input-border-radius;
+    transition: border-color 0.2s;
+    
+    &:focus {
+      border-color: $form-input-focus-border-color;
+    }
+  }
+  
+  input[type="submit"] {
+    background-color: $form-submit-background-color;
+    color: $form-submit-color;
+    border: none;
+    border-radius: $form-submit-border-radius;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+}

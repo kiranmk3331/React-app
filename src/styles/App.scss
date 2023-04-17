@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: black;
+  min-height: 10vh;
+  color: aliceblue;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  align-items: center;
+  div {
+    margin-right: 1rem;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    font-size: medium;
+    font-weight: bolder;
+  }
+}
+
+.login{
+  display: flex;
+  align-items: center;
+}
+
+
+@import './login.scss'
