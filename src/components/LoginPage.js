@@ -1,27 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MyContext } from "../App";
 
 function LoginPage() {
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("")
+  const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setIsAuthenticated } = useContext(MyContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+    setIsAuthenticated(true);
   };
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
-      <label>
-        Username:
-        <input
-          type="text"
-          value={userName}
-          onChange={(event) => setUserName(event.target.value)}
-          required
-        />
-      </label>
-      <br />
       <label>
         Email:
         <input
