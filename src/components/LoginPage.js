@@ -1,15 +1,31 @@
 import { useContext, useState } from "react";
 import { MyContext } from "../App";
+import axios from "axios";
 
 function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [currentUser, setCurrentUser] = useState({});
 
   const { setIsAuthenticated } = useContext(MyContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsAuthenticated(true);
+    const credentials = { email: userEmail, password };
+    const headers = {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    };
+    axios.post("/auth/login", credentials, { headers }).then((response) => {
+      setIsAuthenticated(true);
+      let data = response.data;
+      setCurrentUser({
+        name: data.user.user_name,
+        email: data.user.email,
+        token: data.token,
+        tokenExp: data.exp,
+      });
+    });
   };
 
   return (
