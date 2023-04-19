@@ -1,15 +1,11 @@
-import React, { Fragment, useContext } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
-import { MyContext } from "../../App";
 
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useContext(MyContext);
-
-  return (
-    <Fragment>
-      {isAuthenticated === true ? children : <Navigate to="/login" />}
-    </Fragment>
-  );
+const ProtectedRoute = ({ isAuthenticated, children }) => {
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
 };
 
 export default ProtectedRoute;

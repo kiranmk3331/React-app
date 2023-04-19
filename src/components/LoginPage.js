@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { MyContext } from "../App";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   const [currentUser, setCurrentUser] = useState({});
+  const navigate = useNavigate();
 
   const { setIsAuthenticated } = useContext(MyContext);
 
@@ -25,6 +27,7 @@ function LoginPage() {
         token: data.token,
         tokenExp: data.exp,
       });
+      navigate("/");
     });
   };
 
