@@ -4,6 +4,7 @@ import LoginPage from "../LoginPage";
 import ProtectedRoute from "./ProtectedRoute";
 import { Home } from "../Home";
 import { MyContext } from "../../App";
+import { SignUp } from "../SignUp";
 
 export const AppRoutes = () => {
   const { isAuthenticated } = useContext(MyContext);
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
           }
         />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );
