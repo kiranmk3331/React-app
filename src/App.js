@@ -6,7 +6,9 @@ import { AppRoutes } from "./components/routes/AppRoutes";
 export const MyContext = React.createContext();
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("token") ? true : false
+  );
 
   return (
     <div className="App">

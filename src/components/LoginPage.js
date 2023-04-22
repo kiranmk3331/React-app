@@ -27,6 +27,8 @@ function LoginPage() {
         token: data.token,
         tokenExp: data.exp,
       });
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", currentUser);
       navigate("/");
     });
   };

@@ -17,7 +17,6 @@ export const SignUp = () => {
       "Access-Control-Allow-Origin": "*",
     };
     axios.post("/users", credentials, { headers }).then((response) => {
-      console.log(response.data)
       navigate("/login");
     });
   };
