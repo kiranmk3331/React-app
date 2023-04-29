@@ -9,7 +9,6 @@ import OTPVerificationPage from "../OTPVerificationPage";
 
 export const AppRoutes = () => {
   const { isAuthenticated } = useContext(MyContext);
-  const [user, setUser] = useState({});
 
   return (
     <Router>
@@ -24,14 +23,8 @@ export const AppRoutes = () => {
           }
         />
         <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/signup"
-          element={<SignUp setUser={setUser} user={user} />}
-        />
-        <Route
-          path="/otp"
-          element={<OTPVerificationPage setUser={setUser} user={user} />}
-        />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/otp" element={<OTPVerificationPage />} />
       </Routes>
     </Router>
   );

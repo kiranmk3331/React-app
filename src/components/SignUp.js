@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const SignUp = ({ setUser, user }) => {
+export const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,14 +10,13 @@ export const SignUp = ({ setUser, user }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const credentials = { user_name: name, email, password };
     const headers = {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     };
     await axios.post("/users", credentials, { headers }).then((response) => {
-      setUser(response.data.user)
+      localStorage.setItem("id", response.data.user.id);
       navigate("/otp");
     });
   };
