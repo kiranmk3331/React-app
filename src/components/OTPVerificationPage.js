@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function OTPVerificationPage({ user, setUser }) {
+function OTPVerificationPage() {
   const [otp, setOTP] = useState("");
   const navigate = useNavigate();
   const pRef = useRef(null);
