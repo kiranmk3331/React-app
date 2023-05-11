@@ -19,7 +19,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import CreateRole from "./CreateRole";
-import { Edit, Trash2 } from "react-feather";
+import { Trash2 } from "react-feather";
 import EditRole from "./EditRole";
 
 function TablePaginationActions(props) {

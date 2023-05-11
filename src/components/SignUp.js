@@ -15,7 +15,7 @@ export const SignUp = () => {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     };
-    await axios.post("/users", credentials, { headers }).then((response) => {
+    await axios.post("/users/sign_up", credentials, { headers }).then((response) => {
       localStorage.setItem("id", response.data.user.id);
       navigate("/otp");
     });
