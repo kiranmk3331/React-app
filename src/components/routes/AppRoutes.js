@@ -7,6 +7,7 @@ import { MyContext } from "../../App";
 import { SignUp } from "../SignUp";
 import OTPVerificationPage from "../OTPVerificationPage";
 import Role from "../roles/Role";
+import User from "../users/User";
 
 export const AppRoutes = () => {
   const { isAuthenticated } = useContext(MyContext);
@@ -29,6 +30,15 @@ export const AppRoutes = () => {
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Role />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/users"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <User />
             </ProtectedRoute>
           }
         />
