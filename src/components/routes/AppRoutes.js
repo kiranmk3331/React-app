@@ -6,7 +6,7 @@ import { Home } from "../Home";
 import { MyContext } from "../../App";
 import { SignUp } from "../SignUp";
 import OTPVerificationPage from "../OTPVerificationPage";
-import Role from "../Role";
+import Role from "../roles/Role";
 
 export const AppRoutes = () => {
   const { isAuthenticated } = useContext(MyContext);
