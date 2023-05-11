@@ -13,7 +13,7 @@
   display: block;
   padding: 12px;
   margin-top: 16px;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   background-color: #007bff;
   color: #1f1c1c;
   border: none;
@@ -36,7 +36,7 @@
     font-weight: bold;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     display: block;
     width: 100%;
     padding: 10px;
@@ -59,4 +59,27 @@
     padding: 10px 20px;
     cursor: pointer;
   }
+  input[type="button"] {
+    background-color: #ef3232;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-left: .5em;
+    cursor: pointer;
+  }
+}
+
+.role-delete {
+  color: red;
+  cursor: pointer;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.role-edit {
+  color: blue;
+  cursor: pointer;
+  height: 1.5em;
+  width: 1.5em;
 }

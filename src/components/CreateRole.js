@@ -68,7 +68,10 @@ const CreateRole = ({ fetchRoles }) => {
                 />
               </label>
               <br />
-              <input type="submit" value="Login" />
+              <span>
+              <input type="submit" value="Create" />
+              <input type="button" value="Cancel" onClick={handleClose} />
+              </span>
             </form>
           </Typography>
         </Box>

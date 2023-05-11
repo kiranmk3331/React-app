@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import CreateRole from "./CreateRole";
+import { Edit, Trash2 } from "react-feather";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -116,6 +117,14 @@ export default function Role() {
     setPage(0);
   };
 
+  const handleDelete = async (e, id) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure about deleting this role ?")) {
+      await axios.delete(`/roles/${id}`, { id });
+      fetchRoles();
+    }
+  };
+
   return (
     <div className="role-table">
       <CreateRole fetchRoles={fetchRoles} />
@@ -134,10 +143,13 @@ export default function Role() {
                   {role.name}
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">
-                  hai
+                  <Edit className="role-edit" />
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">
-                  hello
+                  <Trash2
+                    onClick={(e) => handleDelete(e, role.id)}
+                    className="role-delete"
+                  />
                 </TableCell>
               </TableRow>
             ))}
