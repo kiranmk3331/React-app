@@ -20,6 +20,7 @@ import axios from "axios";
 import { useState } from "react";
 import CreateRole from "./CreateRole";
 import { Edit, Trash2 } from "react-feather";
+import EditRole from "./EditRole";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -94,6 +95,8 @@ export default function Role() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [roles, setRoles] = useState([]);
+  const [roleName, setRoleName] = useState("");
+  const [roleDescription, setRoleDescription] = useState("");
 
   const fetchRoles = async () => {
     const res = await axios.get("/roles");
@@ -127,7 +130,13 @@ export default function Role() {
 
   return (
     <div className="role-table">
-      <CreateRole fetchRoles={fetchRoles} />
+      <CreateRole
+        fetchRoles={fetchRoles}
+        roleDescription={roleDescription}
+        setRoleDescription={setRoleDescription}
+        roleName={roleName}
+        setRoleName={setRoleName}
+      />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
           <TableBody>
@@ -143,7 +152,14 @@ export default function Role() {
                   {role.name}
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">
-                  <Edit className="role-edit" />
+                  <EditRole
+                    fetchRoles={fetchRoles}
+                    id={role.id}
+                    roleDescription={roleDescription}
+                    roleName={roleName}
+                    setRoleDescription={setRoleDescription}
+                    setRoleName={setRoleName}
+                  />
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">
                   <Trash2

@@ -1,10 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
 import axios from "axios";
+import { Edit } from "react-feather";
 
 const style = {
   position: "absolute",
@@ -18,30 +18,48 @@ const style = {
   p: 4,
 };
 
-const CreateRole = ({
+const EditRole = ({
   fetchRoles,
+  id,
   roleName,
-  setRoleName,
   roleDescription,
   setRoleDescription,
+  setRoleName,
 }) => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    fetchRole();
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+    setRoleName("");
+    setRoleDescription("");
+  };
+
+  const fetchRole = async () => {
+    let res = await axios.get(`/roles/${id}`, { id });
+    setRoleName(res.data.name);
+    setRoleDescription(res.data.description);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { name: roleName, description: roleDescription };
-    await axios.post("/roles", data);
-    await fetchRoles();
-    setRoleName("");
-    setRoleDescription("");
-    setOpen(false);
+    await axios
+      .put(`/roles/${id}`, data)
+      .then((res) => {
+        handleClose();
+        fetchRoles();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
     <div className="add-role">
-      <Button onClick={handleOpen}>Create Role</Button>
+      <Edit className="role-edit" onClick={handleOpen} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -75,7 +93,7 @@ const CreateRole = ({
               </label>
               <br />
               <span>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Update" />
                 <input type="button" value="Cancel" onClick={handleClose} />
               </span>
             </form>
@@ -86,4 +104,4 @@ const CreateRole = ({
   );
 };
 
-export default CreateRole;
+export default EditRole;
