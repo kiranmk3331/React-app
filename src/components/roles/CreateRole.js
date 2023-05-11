@@ -40,7 +40,7 @@ const CreateRole = ({
   };
 
   return (
-    <div className="add-role">
+    <div className="add-modal">
       <Button onClick={handleOpen}>Create Role</Button>
       <Modal
         open={open}
@@ -53,7 +53,7 @@ const CreateRole = ({
             Create a New Role
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <form onSubmit={handleSubmit} className="role-form">
+            <form onSubmit={handleSubmit} className="modal-form ">
               <label>
                 Role Name:
                 <input

@@ -129,7 +129,7 @@ export default function Role() {
   };
 
   return (
-    <div className="role-table">
+    <div className="custom-table">
       <CreateRole
         fetchRoles={fetchRoles}
         roleDescription={roleDescription}
@@ -164,7 +164,7 @@ export default function Role() {
                 <TableCell style={{ width: 160 }} align="right">
                   <Trash2
                     onClick={(e) => handleDelete(e, role.id)}
-                    className="role-delete"
+                    className="table-delete"
                   />
                 </TableCell>
               </TableRow>

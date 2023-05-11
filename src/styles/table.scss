@@ -1,15 +1,15 @@
-.role-table {
+.custom-table {
   margin-top: 5em;
   margin-left: 1em;
   margin-right: 1em;
 }
 
-.add-role {
+.add-modal{
   display: flex;
   justify-content: end;
 }
 
-.add-role Button {
+.add-modal Button {
   display: block;
   padding: 12px;
   margin-top: 16px;
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.role-form {
+.modal-form {
   background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
     font-weight: bold;
   }
 
-  input[type="text"] {
+  input[type="text"], input[type="email"] {
     display: block;
     width: 100%;
     padding: 10px;
@@ -70,14 +70,14 @@
   }
 }
 
-.role-delete {
+.table-delete {
   color: red;
   cursor: pointer;
   height: 1.5em;
   width: 1.5em;
 }
 
-.role-edit {
+.table-edit {
   color: blue;
   cursor: pointer;
   height: 1.5em;

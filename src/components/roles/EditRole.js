@@ -58,8 +58,8 @@ const EditRole = ({
   };
 
   return (
-    <div className="add-role">
-      <Edit className="role-edit" onClick={handleOpen} />
+    <div className="add-modal">
+      <Edit className="table-edit" onClick={handleOpen} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -71,7 +71,7 @@ const EditRole = ({
             Create a New Role
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <form onSubmit={handleSubmit} className="role-form">
+            <form onSubmit={handleSubmit} className="modal-form ">
               <label>
                 Role Name:
                 <input
